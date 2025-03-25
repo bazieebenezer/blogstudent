@@ -1,0 +1,981 @@
+:root {
+    --brand: #5D76F0;
+    --text-strong: #1A203D;
+    --text-weak: #595F7A;
+    --stroke-strong: #8086A6;
+    --stroke-weak: #E4E6F0;
+    --fill: #F5F6FA;
+    --background: #FFFFFF;
+}
+
+.darkmode {
+    --brand: #97A8FC;
+    --text-strong: #CED0D9;
+    --text-weak: #9598A6;
+    --stroke-strong: #363840;
+    --stroke-weak: #1F2026;
+    --fill: #1F2026;
+    --background: #12131A;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    background-color: var(--background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    font-size: 40px;
+    line-height: 48px;
+    color: var(--text-strong);
+    letter-spacing: -1px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 40px;
+    color: var(--text-strong);
+    letter-spacing: -1px;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 32px;
+    color: var(--text-strong);
+}
+
+h4 {
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--text-strong);
+}
+
+p {
+    font-size: 16px;
+    color: var(--text-weak);
+    line-height: 24px;
+    max-width: 90%;
+}
+
+a.primary_btn button {
+    padding: 20px 30px;
+    background: var(--brand);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all .5s ease-in-out;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 11px;
+    color: var(--background);
+}
+
+a.primary_btn button:hover {
+    background: var(--text-weak);
+    text-decoration: underline;
+}
+
+a.primary_btn button:active {
+    background: var(--text-strong);
+}
+
+a.secondary_btn button {
+    background: var(--background);
+    border: none;
+    cursor: pointer;
+    color: var(--brand);
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+a.tertiary_btn button {
+    background: var(--background);
+    color: var(--brand);
+    padding: 20px 30px;
+    border: 3px solid var(--brand);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all .5s ease-in-out;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 11px;
+}
+
+a.tertiary_btn button:hover {
+    border: 3px solid var(--text-weak);
+    text-decoration: underline;
+    color: var(--text-weak);
+}
+
+a.tertiary_btn button:active {
+    border: 3px solid var(--text-strong);
+    color: var(--text-strong);
+}
+
+section {
+    padding: 64px 20px;
+}
+
+#header {
+    position: relative;
+    height: 100vh;
+    padding: 0;
+}
+
+#header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--background);
+    transition: all .5s ease-in-out;
+}
+
+#header .borderNavbar {
+    box-shadow: 0 1px 1px var(--stroke-weak);
+}
+
+#header .navbar .logo svg {
+    fill: var(--brand);
+}
+
+#header .navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+#header .navbar .logo h1 a {
+    text-decoration: none;
+    margin-left: -3px;
+}
+
+#header .navbar .logo h1 a:hover {
+    text-decoration: underline;
+}
+
+#header .navbar .menu .button {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+#header .navbar .menu .button svg {
+    position: absolute;
+    fill: var(--text-strong);
+}
+
+#header .navbar .menu .button .openMenuBtn {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+}
+
+#header .navbar .menu .button .closeMenuBtn {
+    transform: scale(.1);
+    opacity: 0;
+    transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+    pointer-events: none;
+}
+
+#header .navbar .menu .showMenu .closeMenuBtn {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+}
+
+#header .navbar .menu .showMenu .openMenuBtn {
+    opacity: 0;
+    transform: scale(.1);
+    pointer-events: none;
+    transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+}
+
+#header .navbar .links {
+    position: absolute;
+    transform: scale(1);
+    opacity: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--fill);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: top right;
+    z-index: 990;
+    transition: transform .5s ease-in-out, opacity .5s ease-in-out;
+}
+
+#header .navbar .links ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#header .navbar .links ul li {
+    text-align: center;
+    padding: 28px;
+}
+
+#header .navbar .links ul li a {
+    font-size: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--text-weak);
+    transition: color .5s ease-in-out;
+}
+
+#header .navbar .links ul li a:hover {
+    text-decoration: underline;
+    color: var(--text-strong);
+}
+
+#header .navbar .hidden {
+    transform: scale(.1);
+    opacity: 0;
+    transform-origin: top right;
+}
+
+#header .hero {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    padding: 64px 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 22px;
+}
+
+#header .hero h1 {
+    margin-bottom: 22px;
+}
+
+#header .hero p {
+    margin-bottom: 32px;
+}
+
+#header .hero .left {
+    display: flex;
+    flex-direction: column;
+}
+
+#header .hero .left .button {
+    display: flex;
+    flex-direction: column;
+}
+
+#header .hero .right {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: var(--stroke-weak);
+    margin-bottom: 32px;
+    border-radius: 61% 23% 25% 59% / 48% 48% 32% 38%;
+    overflow: hidden;
+    border: 16px solid var(--brand);
+}
+
+#header .hero .right img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 980;
+}
+
+#header .student_bio {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 64px 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 22px;
+}
+
+#header .student_bio h1 {
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+#header .student_bio p {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+#header .student_bio .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header .student_bio .left .button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header .student_bio .right {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: var(--stroke-weak);
+    margin-bottom: 32px;
+    border-radius: 21% 47% 22% 25% / 46% 39% 25% 32%;
+    overflow: hidden;
+}
+
+#header .student_bio .right img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 980;
+}
+
+.return_up.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.return_up {
+    opacity: 0;
+    transform: scale(.1);
+    position: fixed;
+    background-color: var(--fill);
+    box-shadow: 0;
+    bottom: 20px;
+    width: 64px;
+    height: 64px;
+    right: 20px;
+    z-index: 10000;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all .5s ease-in-out;
+    padding: 8px;
+    border: 1px solid var(--stroke-weak);
+}
+
+.return_up svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--stroke-strong);
+}
+
+.return_up svg:hover {
+    fill: var(--brand);
+}
+
+.return_home {
+    display: flex;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.return_home a.primary_btn button {
+    background-color: var(--fill);
+    padding: 14px 18px;
+    border: 1px solid var(--stroke-weak);
+    color: var(--text-weak);
+    cursor: pointer;
+    margin-bottom: 0;
+    transition: color .5s ease-in-out;
+}
+
+.return_home a.primary_btn button:hover {
+    color: var(--text-strong);
+}
+
+#students {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--fill);
+    overflow: hidden;
+}
+
+#students .title {
+    margin-bottom: 43px;
+}
+
+#students .portfolios {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 43px;
+    transition: transform 0.5s ease-in-out;
+}
+
+#students .student_box {
+    transition: all 0.3s ease-in-out;
+}
+
+#students .student_box.active {
+    border: 1px solid var(--stroke-weak);
+    transform: scale(1.02);
+}
+
+#students .portfolios .student_box {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    background: var(--background);
+    flex-basis: 380px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid var(--stroke-weak);
+}
+
+#students .portfolios .student_box .picture {
+    width: 100%;
+    height: 270px;
+    background: var(--stroke-strong);
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+#students .portfolios .student_box .picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#students .portfolios .student_box .content {
+    width: 100%;
+    padding: 32px;
+    top: 300px;
+    left: 0;
+}
+
+#students .portfolios .student_box .content h2 {
+    margin-bottom: 11px;
+}
+
+#students .portfolios .student_box .content p {
+    margin-bottom: 22px;
+}
+
+#students .swap_btn {
+    display: flex;
+    margin-top: 22px;
+    gap: 11px;
+}
+
+#students .swap_btn .btn {
+    background: var(--background);
+    padding: 25px 35px;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--stroke-weak);
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    font-weight: bold;
+    color: var(--stroke-strong);
+}
+
+#students .swap_btn .btn:hover {
+    color: var(--brand);
+}
+
+#about h1 {
+    margin-bottom: 32px;
+}
+
+#about h2 {
+    margin-bottom: 43px;
+}
+
+#about svg {
+    height: 115px;
+    width: 115px;
+    fill: var(--brand);
+    background-color: var(--fill);
+    padding: 4px;
+    border-radius: 50%;
+    border: 1px solid var(--stroke-weak);
+    margin-bottom: 11px;
+}
+
+#footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--fill);
+}
+
+#footer p {
+    font-weight: bold;
+}
+
+#skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--fill);
+    overflow: hidden;
+}
+
+#skills .title {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+#skills .skills_boxes {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 11px;
+    flex-wrap: wrap;
+}
+
+#skills .skills_boxes .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100px;
+    background: var(--background);
+    padding: 8px;
+    box-shadow: 0 5px 8px var(--stroke-weak);
+    border-radius: 8px;
+}
+
+#skills .skills_boxes .box svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--text-strong);
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--background);
+    overflow: hidden;
+}
+
+#projects .title {
+    text-align: center;
+    margin-bottom: 43px;
+}
+
+#projects .portfolios {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 43px;
+    transition: transform 0.5s ease-in-out;
+}
+
+#projects .student_box {
+    transition: all 0.3s ease-in-out;
+}
+
+#projects .student_box.active {
+    transform: scale(1.02);
+}
+
+#projects .portfolios .student_box {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    background: var(--background);
+    flex-basis: 380px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid var(--stroke-weak);
+}
+
+#projects .portfolios .student_box .picture {
+    width: 100%;
+    height: 270px;
+    background: var(--stroke-strong);
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+#projects .portfolios .student_box .picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#projects .portfolios .student_box .content {
+    width: 100%;
+    padding: 22px;
+    top: 300px;
+    left: 0;
+}
+
+#projects .portfolios .student_box .content h2 {
+    margin-bottom: 11px;
+}
+
+#projects .portfolios .student_box .content p {
+    margin-bottom: 22px;
+}
+
+#projects .portfolios .student_box .content .badges {
+    display: flex;
+    gap: 11px;
+}
+
+#projects .portfolios .student_box .content .badges span {
+    color: var(--text-weak);
+    background: var(--stroke-weak);
+    border: 2px solid var(--stroke-strong);
+    padding: 8px;
+    border-radius: 30px;
+}
+
+#projects .swap_btn {
+    display: flex;
+    margin-top: 22px;
+    gap: 11px;
+    justify-content: center;
+}
+
+#projects .btn {
+    background: var(--fill);
+    padding: 25px 35px;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--stroke-weak);
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    font-weight: bold;
+    color: var(--stroke-strong);
+}
+
+#projects .btn:hover {
+    color: var(--brand);
+}
+
+#contact {
+    background: var(--background);
+}
+
+#contact .title {
+    text-align: center;
+    margin-bottom: 43px;
+}
+
+#contact .form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    width: 100%;
+}
+
+#contact .form .right {
+    display: none;
+}
+
+#contact .form .left {
+    background: var(--fill);
+    width: 100%;
+    padding: 22px;
+    border-radius: 25px;
+    border: 1px solid var(--stroke-weak);
+}
+
+#contact .form .left form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact .form .left form label {
+    font-size: 18px;
+    color: var(--text-strong);
+    margin-bottom: 8px;
+}
+
+#contact .form .left form input {
+    height: 52px;
+    width: 90%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--stroke-strong);
+    font-size: 16px;
+    margin-bottom: 22px;
+    background: var(--background);
+    color: var(--text-strong);
+}
+
+#contact .form .left form input:focus {
+    outline: 1px solid var(--brand);
+}
+
+#contact .form .left form textarea {
+    width: 100%;
+    height: 150px;
+    border: 1px solid var(--stroke-strong);
+    border-radius: 8px;
+    padding: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    resize: none;
+    background: var(--background);
+    color: var(--text-strong);
+}
+
+#contact .form .left form textarea:focus {
+    outline: 1px solid var(--brand);
+}
+
+#contact .form .left form button {
+    margin-top: 32px;
+    max-width: 220px;
+    height: 56px;
+    padding: 19px 12px;
+    font-size: 18px;
+    border-radius: 8px;
+    background: var(--brand);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all .5s ease-in-out;
+    text-decoration: none;
+    color: var(--background);
+}
+
+#contact .form .left form button:hover {
+    background: var(--text-weak);
+    text-decoration: underline;
+}
+
+
+/* Responsive design */
+
+@media screen and (min-width: 1024px) {
+
+    section {
+        padding: 140px 70px;
+    }
+
+    #header .navbar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        z-index: 1000;
+    }
+
+    #header .navbar .links {
+        display: flex;
+        transform: none;
+        opacity: 1;
+        width: auto;
+        height: auto;
+        position: relative;
+        background: var(--background);
+    }
+
+    #header .navbar .links ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 42px;
+        justify-content: space-between;
+        width: auto;
+        height: auto;
+    }
+
+    #header .navbar .links ul li {
+        padding: 0;
+    }
+
+    #header .navbar .links ul li a {
+        font-size: 20px;
+        text-decoration: none;
+        padding: 10px 20px;
+        white-space: nowrap;
+        font-weight: bold;
+        color: var(--text-weak);
+    }
+
+    #header .navbar .menu .button {
+        display: none;
+    }
+
+    #header .hero {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 70px 70px;
+    }
+
+    #header .hero .left {
+        width: 50%;
+    }
+
+    #header .hero .right {
+        width: 60%;
+        height: 500px;
+        overflow: hidden;
+    }
+
+    #header .student_bio {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        padding: 70px 70px;
+    }
+    
+    #header .student_bio .right {
+        position: relative;
+        width: 50%;
+        height: 400px;
+        background: var(--stroke-weak);
+        margin-bottom: 32px;
+        border-radius: 21% 47% 22% 25% / 46% 39% 25% 32%;
+        overflow: hidden;
+    }
+    
+    #header .student_bio .right img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 980;
+    }
+
+    #projects .portfolios {
+        margin-left: 39%;
+    }
+
+    #skills {
+        padding: 140px 70px;
+    }
+
+    #skills .btn {
+        font-size: 32px;
+        padding: 30px 40px;
+    }
+
+    #skills .swap_btn {
+        margin-top: 22px;
+    }
+
+    #contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #contact .form .right {
+        position: absolute;
+        display: block;
+        width: 50%;
+        height: 100%;
+        background: var(--stroke-weak);
+        left: 50%;
+    }
+
+    #contact .form {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 25px;
+        width: 85%;
+        background: var(--stroke-strong);
+        overflow: hidden;
+    }
+
+    #contact .form .right img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+    
+    #contact .form .left {
+        background: var(--fill);
+        width: 50%;
+        padding: 22px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border: 1px solid var(--stroke-weak);
+        transform: translateX(-50%);
+    }
+    
+    #contact .form .left form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .return_up.show {
+        opacity: 0;
+        transform: scale(.1);
+        pointer-events: none;
+    }
+
+    #students {
+        padding: 140px 70px;
+    }
+
+    #students .btn {
+        font-size: 32px;
+        padding: 30px 40px;
+    }
+
+    #students .swap_btn {
+        margin-top: 22px;
+    }
+
+    #about p {
+        max-width: 40%;
+    }
+}
