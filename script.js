@@ -36,7 +36,7 @@ window.addEventListener('scroll', () => {
 // Initialize the active index and card position
 let activeIndex = 0;
 let cardWidth = cards[0].offsetWidth;
-let gap = 43; // This is the gap you defined in your CSS
+let gap = 32;
 
 // Set the first card as active initially
 cards[activeIndex].classList.add('active');

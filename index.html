@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Edupulse</title>
 </head>
@@ -60,6 +63,7 @@
 
     <section id="students">
         <div class="title">
+            <p class="section-label">Découvrez</p>
             <h1>Les étudiants</h1>
         </div>
         <div class="portfolios">
@@ -165,14 +169,19 @@
             </div>
         </div>
         <div class="swap_btn">
-            <div class="btn prev_btn"><</div>
-            <div class="btn next_btn">></div>
+            <div class="btn prev_btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </div>
+            <div class="btn next_btn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+            </div>
             </div>
     </section>
 
     <section id="about">
-        <h1>A propos</h1>
-        <h2>Qui somme-nous ?</h2>
+        <p class="section-label">À propos</p>
+        <h1>Qui somme-nous ?</h1>
+        <div class="about-grid">
         <div class="content">
             <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM7 13H9C9 14.6569 10.3431 16 12 16C13.6569 16 15 14.6569 15 13H17C17 15.7614 14.7614 18 12 18C9.23858 18 7 15.7614 7 13ZM8 11C7.17157 11 6.5 10.3284 6.5 9.5C6.5 8.67157 7.17157 8 8 8C8.82843 8 9.5 8.67157 9.5 9.5C9.5 10.3284 8.82843 11 8 11ZM16 11C15.1716 11 14.5 10.3284 14.5 9.5C14.5 8.67157 15.1716 8 16 8C16.8284 8 17.5 8.67157 17.5 9.5C17.5 10.3284 16.8284 11 16 11Z"/></svg>
             <p>Bienvenue sur notre blog collaboratif, une vitrine unique pour les talents et les aspirations des
@@ -200,6 +209,7 @@
             <p>C'est plus qu'un simple regroupement de travaux :
                 c'est un espace de partage, d'inspiration et de découverte.
             </p>
+        </div>
         </div>
     </section>
 
